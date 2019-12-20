@@ -2,7 +2,8 @@ class HeroinesController < ApplicationController
   before_action :find_heroine, only: [:show]
   
   def index
-    @heroines = Heroine.all
+
+    @heroines = Heroine.search(params[:search])
   end
 
   def new
@@ -12,12 +13,12 @@ class HeroinesController < ApplicationController
 
   def create
     heroine = Heroine.create(heroine_params)
-    if heroine.valid?
-      redirect_to heroine_path(heroine)
-    else
-      
-      redirect_to new_heroine_path
-    end
+    # if heroine.valid?
+      redirect_to heroines_path
+    # else
+  
+      # redirect_to new_heroine_path
+    # end
   end
 
   def show
@@ -29,11 +30,11 @@ class HeroinesController < ApplicationController
   private
 
   def find_heroine
-    @heroine = Heroine.find(params[:id])
+    @heroine = Heroine.find(params[:id, :search])
   end
 
   def heroine_params
-    params.require(:heroine).permit(:name, :super_name, :power_id)
+    params.require(:heroine).permit(:name, :super_name, :power_id, :search)
   end
 
 
