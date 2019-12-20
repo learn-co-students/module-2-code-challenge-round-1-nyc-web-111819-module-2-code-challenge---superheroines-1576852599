@@ -1,6 +1,11 @@
 class HeroinesController < ApplicationController
   def index
     @heroines = Heroine.all
+      # if session[:search_name]
+      #   @heroines = Heroine.where("name Like ?", "#{session[:search_name]}" )
+      # else
+      #   @heroines = Heroine.all
+      # end 
   end
 
   def show 
