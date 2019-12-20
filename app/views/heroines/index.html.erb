@@ -1,9 +1,12 @@
 <h2>All Heroines</h2>
 
 <ul>
+<%= form_for(@search, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+ <h2> Search by Power: <%= f.collection_select :power_id, Power.all, :id, :name %></h2>
+  <% end %>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>

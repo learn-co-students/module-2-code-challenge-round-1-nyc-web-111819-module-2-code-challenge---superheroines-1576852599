@@ -1,0 +1,6 @@
+<ul>
+<h1><%= @heroine.name %></h1>
+<%= @heroine.super_name %><br>
+<%= link_to @heroine.power.name, @heroine.power %>
+<%= button_to "back to index", heroines_path, method: :get %>
+</ul>
