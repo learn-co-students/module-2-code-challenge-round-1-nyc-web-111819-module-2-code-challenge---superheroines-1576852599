@@ -1,0 +1,10 @@
+<h1> Show Page </h1>
+
+<ul>
+<li><h2><%= @heroine.name %></h2></li>
+<li><h2><%= @heroine.super_name%></h2></li>
+<li><h3><%= link_to @heroine.power_id, power_path(@heroine.power_id)%></h3></li>
+<li><h3><%= link_to "Edit Form", edit_heroine_path(@heroine)%></h3></li>
+<li><h3><%= link_to "Go To Heroine Index", heroines_path%></h3></li>
+<li><h3><%= button_to "Delete", @heroine, :method => :delete %></h3></li>
+</ul>
