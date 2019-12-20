@@ -15,12 +15,12 @@ class HeroinesController < ApplicationController
   end
 
   def create
-    heroine = Heroine.create(heroine_params)
+    @heroine = Heroine.create(heroine_params)
 
-    if heroine.valid?
-      redirect_to heroine_path(heroine)
+    if @heroine.valid?
+      redirect_to heroine_path(@heroine)
     else
-      flash[:messages] = heroine.errors.full_messages
+      flash[:messages] = @heroine.errors.full_messages
       redirect_to new_heroine_path
     end
   end
@@ -30,8 +30,9 @@ class HeroinesController < ApplicationController
   end
 
   def update
-    @heroine = Heroine.update(heroine_params)
 
+    @heroine.update(heroine_params)
+    
     if @heroine.valid?
       redirect_to heroine_path(@heroine)
     else
@@ -42,6 +43,7 @@ class HeroinesController < ApplicationController
 
   def destroy
     @heroine.destroy
+    redirect_to heroines_path
   end
 
   private
