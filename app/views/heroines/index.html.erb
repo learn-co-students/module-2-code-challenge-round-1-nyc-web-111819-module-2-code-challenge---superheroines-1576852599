@@ -6,7 +6,7 @@
 <%= form_tag("/heroines/sort") do %>
   <%= label_tag('sort', "Sort") %>
   <%= select_tag('sort', options_for_select(@options, @default)) %>
-  <%= submit_tag "Create Cat" %>
+  <%= submit_tag "Sort" %>
 <% end %>
 <ul>
   <% @heroines.each do |heroine| %>
