@@ -1,0 +1,7 @@
+<h1> <%= @heroine.name%>'s Page </h1>
+
+<h3>Name: </h3><%= @heroine.name %>
+<h3>Superhero Name: </h3><%= @heroine.super_name %>
+<h3>Power: </h3><%= link_to @heroine.power.name, power_path(@heroine.power) %>
+
+<p><%= button_to "Back to Heroines", heroines_path, method: :get %></p>

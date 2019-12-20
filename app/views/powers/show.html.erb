@@ -1,0 +1,6 @@
+<h1> <%= @power.name.upcase %> </h1>
+
+
+<h3>Superpower Description: </h3><%= @power.description %>
+
+<p><%= button_to "All Superpowers", powers_path, method: :get %></p>
