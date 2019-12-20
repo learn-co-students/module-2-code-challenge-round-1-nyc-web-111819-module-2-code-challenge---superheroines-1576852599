@@ -1,9 +1,10 @@
 <h2>All Heroines</h2>
 
+
 <ul>
-  <% @heroines.each do |heroine| %>
-    <li>
-      <%= heroine.super_name %>
+<% @heroines.each do |heroine| %>
+  <%= link_to 'heroine.super_name', show_heroine_path %>
+  <li>
     </li>
     <br>
   <% end %>
