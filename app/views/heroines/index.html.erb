@@ -3,6 +3,11 @@
 <%= button_to "Become a Heroine", new_heroine_path, method: :get %>
 <br>
 <h2>All Heroines</h2>
+<%= form_tag("/heroines/sort") do %>
+  <%= label_tag('sort', "Sort") %>
+  <%= select_tag('sort', options_for_select(@options, @default)) %>
+  <%= submit_tag "Create Cat" %>
+<% end %>
 <ul>
   <% @heroines.each do |heroine| %>
     <li>

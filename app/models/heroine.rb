@@ -12,7 +12,7 @@ class Heroine < ApplicationRecord
     else
       self.name = self.name.capitalize
     end
-    
+
     if self.super_name.split.size > 1
       self.super_name = self.super_name.split.map{|w| w.capitalize}.join(" ")
     else
@@ -20,4 +20,7 @@ class Heroine < ApplicationRecord
     end
   end
 
+  def sort_by_power(sort)
+    Power.all.select{|power| power.name = sort}
+  end
 end

@@ -3,6 +3,9 @@ class HeroinesController < ApplicationController
   before_action :find_heroine, only: [:show, :edit, :update]
 
   def index
+    @options = Power.all.map{|p| p.name}
+    if params[:sort]
+      
     @heroines = Heroine.all
   end
 
