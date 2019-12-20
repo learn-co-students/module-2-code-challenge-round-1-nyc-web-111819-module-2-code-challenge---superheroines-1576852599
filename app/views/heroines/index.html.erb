@@ -1,10 +1,33 @@
 <h2>All Heroines</h2>
 
+<%= button_to "Add New Heroine", new_heroine_path, method: :get %>
+<%= button_to "All Powers", powers_path, method: :get %>
+
+
+<%= form_with(url: "/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
 <ul>
-  <% @heroines.each do |heroine| %>
+  <% if @search %>
+    <% q_heroines = @heroines.select {|heroine| heroine.power.name == @search}  %>
+    <% q_heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>
+
+  <% else %>
+    <% @heroines.each do |heroine| %>
+      <li>
+        <%= link_to heroine.super_name, heroine_path(heroine) %>
+      </li>
+      <br>
+    <% end %>
+  <% end  %>
 </ul>

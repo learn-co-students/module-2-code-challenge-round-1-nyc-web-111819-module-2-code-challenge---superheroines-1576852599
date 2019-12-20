@@ -1,0 +1,24 @@
+<h2>Edit <%= @power.name %></h2>
+
+<ul>
+    <% if flash[:messages] %>
+        <p>Error Editing Power</p>
+        <% flash[:messages].each do |errors| %>
+            <li><%= errors %></li>
+        <% end %>
+    <% end %>
+</ul>
+
+<%= form_for @power do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <%= f.submit %>
+
+<% end %>
+
+<%= button_to "Cancel", power_path(@power), method: :get %>
