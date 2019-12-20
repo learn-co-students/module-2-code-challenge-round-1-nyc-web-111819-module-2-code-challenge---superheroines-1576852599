@@ -1,9 +1,12 @@
+<h1>Welcome All Heroines!!!!</h1>
+<br>
+<%= button_to "Become a Heroine", new_heroine_path, method: :get %>
+<br>
 <h2>All Heroines</h2>
-
 <ul>
   <% @heroines.each do |heroine| %>
     <li>
-      <%= heroine.super_name %>
+      <%= link_to heroine.super_name, heroine_path(heroine) %>
     </li>
     <br>
   <% end %>

@@ -1,0 +1,12 @@
+<h1>Power</h1>
+<br>
+<h3>Power Name: <i><%= @power.name.capitalize %></i></h3>
+<p><b>Description: </b><%= @power.description.capitalize + "." %></p>
+<br>
+<h3>Heroines With This Power:</h3>
+<ul>
+<% @power.heroines.each do |h|%>
+  <p><b><li><%= link_to h.super_name, heroine_path(h) %></li></b></p>
+<% end%>
+</ul>
+
