@@ -1,0 +1,10 @@
+<h2><%= @heroine.super_name %></h2>
+<hr>
+
+<ul>
+  <li>Alter-ego: <strong><%= @heroine.name %></strong></li>
+  <li>Superpower: <strong><%= link_to(@heroine.power.name.titlecase, power_path(@heroine.power)) %></strong></li>
+</ul>
+
+<hr>
+<%= link_to("Back to List of All Heroines", heroines_path) %>
