@@ -1,5 +1,16 @@
 <h2>All Heroines</h2>
 
+<%= form_with(url: "/heroines/search", method: "get") do %>
+  <%= label_tag(:q, "Search by Superpower:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+<%= render 'refresh' if flash[:refresh_option] == true %>
+<hr>
+
+
+
+
 <ul>
   <% @heroines.each do |heroine| %>
     <li>

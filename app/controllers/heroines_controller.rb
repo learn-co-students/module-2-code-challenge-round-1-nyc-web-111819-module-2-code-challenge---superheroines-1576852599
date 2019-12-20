@@ -1,6 +1,13 @@
 class HeroinesController < ApplicationController
   def index
-    @heroines = Heroine.all_abc
+    if !!params[:q]
+        @heroines = Heroine.all_abc.select do |heroine|
+          heroine.power.name.downcase == params[:q].downcase
+        end
+      flash[:refresh_option] = true
+    else
+      @heroines = Heroine.all_abc
+    end
   end
 
   def show
